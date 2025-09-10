@@ -1,31 +1,18 @@
-const age = 16;
-console.log(age);
+const celsius = 1000;
+const fahrenheit = celsius * 9/5 + 32;
+console.log(fahrenheit);
 
-const name = 'Nazik';
-console.log(name);
+const daysInMonth = 30;
+const hoursInMonth = daysInMonth * 24;
+const minutesInMonth = hoursInMonth * 60;
+console.log(`В місяці днів: ${daysInMonth} годин: ${hoursInMonth} хвилин: ${minutesInMonth}`);
 
-const isStudent = true;
-console.log(isStudent);
+let health = 100;
+let energy = 100;
+console.log(`На разі в гравця здоровя: ${health -10} ,а також енергія зменшилась томущо ви не поїли банан ,енергія:${energy - 37}`);
 
-const myString = 'Немає улюбленої цитати';
-console.log(myString);
+const totalPrice = 100;
+const discount = 0.1;
+const discountedPrice = totalPrice - (totalPrice * discount);
+console.log(discountedPrice);
 
-let myNumber = 10;
-myNumber = myNumber +10;
-console.log(myNumber);
-
-const  myNul = null;
-console.log( myNul);
-
-const userName = prompt('Ведіть своє імя');
-console.log(userName);
-alert(`Привіт ${userName}`)
-console.log(typeof userName);
-
-const userAnswer = confirm('Ви дійсно хочете покинути сторінку?')
-console.log(userAnswer);
-
-const userCareles = 'Увага! Дія може бути небезпечною.'
-alert(userCareles)
-const userOkey = confirm('Ви впевнені, що хочете продовжити?')
-console.log(userOkey);
