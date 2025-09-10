@@ -16,3 +16,18 @@ const discount = 0.1;
 const discountedPrice = totalPrice - (totalPrice * discount);
 console.log(discountedPrice);
 
+const floatString = '45.67';
+const parsedFloat = parseFloat(floatString);
+console.log(parsedFloat);
+
+const intString = '123';
+const parsedInt = parseInt(intString);
+console.log(parsedInt);
+
+const integer = 42;
+const stringNumber = '256';
+const convertedInt = parseInt(stringNumber);
+console.log(convertedInt);
+const convertedString = integer.toString();
+console.log(convertedString);
+
