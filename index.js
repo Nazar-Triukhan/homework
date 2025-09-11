@@ -40,4 +40,3 @@ const convertedInt = parseInt(stringNumber);
 console.log(convertedInt);
 const convertedString = integer.toString();
 console.log(convertedString);
-
