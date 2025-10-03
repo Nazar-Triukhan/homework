@@ -1,39 +1,114 @@
-const userOld = prompt('how old are you:').trim();
-const userName = prompt('your name:').trim();
-if(userOld !== '' && userName !== ''){
-    console.log('Обидва поля заповнені');
-}else{
-        console.log('Не всі поля заповнені');
+
+
+const userNumber = prompt( 'Кава Чай або сік');
+switch (userNumber) {
+    case 'кава':
+        alert('з вас 50грн')
+        break;
+    case 'чай':
+        alert('з вас 20грн')
+        break;
+    case 'сік':
+        alert('з вас 30грн')
+        break;
+
+    default:
+        alert('неправильно вели данні')
+        break;
 }
 
-const userNumber1 = Number(prompt("number 1"));
-const userNumber2 = Number(prompt("number 2"));
-if((userNumber1 + userNumber2) > 10){
-    console.log('Сума більша за 10'); 
-}else{
-    console.log('Сума менша або дорівнює 10'); 
+
+const day = prompt('місяць по англ').toLocaleLowerCase();
+switch (day) {
+    case 'monday':
+    case 'tuesday':
+    case 'Wednesday':
+    case 'thursday':
+    case 'friday':
+        alert('це робочий день')
+        break;
+    case 'saturday':
+    case 'sunday':
+        alert('це вихідний день')
+        break;
+    default:
+        alert('error')
+        break;
 }
 
-const javaUser = prompt('напишіть JavaScript').trim().toLowerCase();
-if('javascript' === javaUser){
-    console.log('Текст містить слово JavaScript');
-}else{
-    console.log('Текст не містить слово JavaScript');
+const month = Number(prompt("Введіть номер місяця (1-12):"));
+switch (month) {
+    case 12:
+    case 1:
+    case 2:
+        alert("Зима");
+        break;
+    case 3:
+    case 4:
+    case 5:
+        alert("Весна");
+        break;
+    case 6:
+    case 7:
+    case 8:
+        alert("Літо");
+        break;
+    case 9:
+    case 10:
+    case 11:
+        alert("Осінь");
+        break;
+    default:
+        alert("Неправильний номер місяця!");
+        break;
 }
 
-const numberUser = Number(prompt('Number:'))
-if(numberUser>=10 && numberUser<=20){
-    console.log('Число входить в діапазон від 10 до 20');
-}else{
-    console.log('Число не входить в діапазон від 10 до 20');
+
+const color = prompt("Введіть колір (червоний, жовтий, зелений):").toLowerCase();
+
+switch (color) {
+    case "червоний":
+        alert("СТОП");
+        break;
+    case "жовтий":
+        alert("Чекати");
+        break;
+    case "зелений":
+        alert("Йти");
+        break;
+    default:
+        alert("Невідомий колір");
+        break;
 }
 
-const userNameInput = prompt('Ведіть імя:').trim();
-const userEmailInput = prompt('Ведіть емайл:').trim();
-const userPasswordInput = prompt('Ведіть пароль:').trim();
-if(userNameInput.length > 3 && userEmailInput.includes('@') && userEmailInput.includes('.') && userPasswordInput.length > 6){
-console.log('Перенаправлення на іншу сторінку');
-}else{
-    console.log('Помилка: неправильне заповнення');
-    
+const num1 = Number(prompt("Введіть перше число:"));
+const num2 = Number(prompt("Введіть друге число:"));
+const operator = prompt("Виберіть операцію (+, -, *, /):");
+
+let result;
+
+switch (operator) {
+    case "+":
+        result = num1 + num2;
+        alert(`Результат: ${result}`);
+        break;
+    case "-":
+        result = num1 - num2;
+        alert(`Результат: ${result}`);
+        break;
+    case "*":
+        result = num1 * num2;
+        alert(`Результат: ${result}`);
+        break;
+    case "/":
+        if (num2 === 0) {
+            alert("Помилка Ділення на нуль неможливе!");
+        } else {
+            result = num1 / num2;
+            alert(`Результат: ${result}`);
+        }
+        break;
+    default:
+        alert("Невідомий оператор!");
+        break;
 }
