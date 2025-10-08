@@ -29,3 +29,4 @@ const userCareles = 'Увага! Дія може бути небезпечною
 alert(userCareles)
 const userOkey = confirm('Ви впевнені, що хочете продовжити?')
 console.log(userOkey);
+
