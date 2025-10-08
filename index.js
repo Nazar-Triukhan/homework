@@ -16,7 +16,28 @@ for(let i = 0; i <= 10; i += 1){
 }
 
 let userNum = Number(prompt('input Number:').trim())
-while (userNum > 0) {
-    userNum -= 1;
-    console.log(userNum);
+// let a = 0
+// while (a < userNum) {
+//     if(a >= userNum){
+//         break;
+//     }
+//     a += 1
+//     console.log(i);
+// }
+for(let i = 0; ;i += 1){
+    if(i >= userNum){
+        break;
+    }
+    console.log(i);
+}
+
+
+let j = 1;
+while (j <= 20) {
+    if((j % 2) > 0){
+         j++ // бачив в інтернеті що так можно робити j++
+        continue;
+    }
+    console.log(j);
+  j++
 }
