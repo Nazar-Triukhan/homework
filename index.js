@@ -1,69 +1,96 @@
-// Завдання 1. Лічильник подій 
+// Створіть об'єкт "bankAccount" з властивостями "ownerName", "accountNumber", "balance". 
+// Додайте до об'єкту метод "deposit", який дозволяє додавати гроші на рахунок, та метод "withdraw", 
+// який дозволяє знімати гроші з рахунку. Використайте cofirm() щоб поповнити рахунок або отримати готівку та prompt() 
+// щоб дізнатися сумму. Після проведення операції виводити повідомлення про залишок на рахунку. 
 
-const numbers = [1, 5, 8, 12, 3, 15, 7, 20];
-const words = ['кіт', 'собака', 'миша', 'папуга', 'хомяк'];
-
-function countItems (array, condition){
-let count = 0;
-for (const i of array) {
-    if(condition(i)){
-        count += 1
+const bankAccount = {
+    ownerName: 'PUMB',
+    accountNumber: 1111222233334444,
+    balance: 0,
+    deposit(sum){
+        this.balance += sum
+        return this.balance
+    },
+    withdraw(sum){
+        this.balance -= sum
+        return this.balance
     }
 }
-return count;
-}
 
-const isEven = num => num % 2 === 0;
-const isLarge = num => num > 10;
-const isShort = word => word.length <= 3;
-
-console.log('Парних чисел:', countItems(numbers, isEven));
-console.log('Чисел більше 10:', countItems(numbers, isLarge));
-console.log('Коротких слів:', countItems(words, isShort));
-
-
-
-// Завдання 2: Калькулятор з операціями 
-
-const calculate = (a, b, operation) => {
-    return operation(a,b)
-}
-
-const add = (a,b) =>{
-    return `${a} + ${b} = ${a + b}`
-}
-const subtract = (a,b) => {
-    return `${a} - ${b} = ${a - b}`
-}
-const multiply = (a,b) => {
-    return `${a} * ${b} = ${a * b}`
-}
-const divide = (a,b) => {
-    if(a === 0 || b === 0){
-        return `erorr`
-    }
-    return `${a} / ${b} = ${a / b}`
+const plusDeposit = confirm('Хочете поповнти рахунок?')
+if (plusDeposit) {
+    const sum = Number(prompt('Яку суму:'))
+    bankAccount.deposit(sum)
+    alert(`У вас на балансі ${bankAccount.balance}`);
+    
+}else{
+    const sum = Number(prompt('Яку суму зняти:'))
+    bankAccount.withdraw(sum)
+        alert(`У вас на балансі ${bankAccount.balance}`);
 }
 
 
-console.log(calculate(10, 5, add));      // Повинно показати 15
-console.log(calculate(10, 5, subtract)); // Повинно показати 5
-console.log(calculate(10, 5, multiply)); // Повинно показати 50
-console.log(calculate(10, 5, divide));   // Повинно показати 2
-console.log(calculate(10, 0, divide));   // Повинно показати помилку
+console.log(bankAccount);
 
 
-// Завдання 3: Генератор повідомлень 
+// Створіть об'єкт "weather" з властивостями "temperature", "humidity", "windSpeed". 
+// Додайте до об'єкту метод, який повертає "true", якщо температура нижче 0 градусів 
+// Цельсія, та "false", якщо температура вище або рівна 0 градусів Цельсія. Температуру 
+// потрібно отримати з prompt(). Якщо метод повернув "true" вивести повідомлення “температура нижче 0 градусів Цельсія” і навпаки
 
-function repeatMessage(times, messageCreator){
-return messageCreator(times)
-}
-
-function messageCreator (times){
-    for (let i = 0; i < times; i++) {  
-        console.log(`hello ${i}`);
+const weather = {
+    temperature: 0,
+    humidity: 1,
+    windSpeed: 20,
+    whatTemperature(gradus){
+        if (gradus <= 0) {
+            return true
+        } else{
+            return false
+        }
+    },
+    isTemperature(gradus){
+        if (this.whatTemperature(gradus)) {
+            alert('температура нижче 0 градусів Цельсія')
+        } else alert('температура вища 0 градусів Цельсія')
     }
 }
-console.log(repeatMessage(3,messageCreator));
+const isTmperature = Number(prompt('Яка в вас температура:').trim())
+weather.isTemperature(isTmperature)
+console.log(weather);
 
 
+// Створіть об’єкт "user", який буде мати властивості "name", "email", "password".
+//  Додайте метод "login", який буде перевіряти правильність введеного email та password. 
+const user = {
+    name: 'Nazar',
+    email: 'truyhann@gmail.com',
+    password: 'Nazar2009',
+    login(email,password){
+        if (email === this.email && password === this.password) {
+            alert('Все ведено правильно')
+        } else alert('Ведено не правильно')
+    }
+}
+const goodEmail = prompt('Ведіть емаіл').trim()
+const goodPassword = prompt('Ведіть пароль').trim()
+user.login(goodEmail,goodPassword)
+
+
+
+
+// Створіть об'єкт "movie" з властивостями "title", "director", "year", "rating". Додайте до об'єкту метод,
+//  який повертає "true", якщо рейтинг фільму вище 8, та "false", якщо рейтинг фільму 8 або нижче. Вивести значення властивостей в консоль. 
+const movie = {
+    title: 'Titanik',
+    director: 'qwerty',
+    year: 2010,
+    rating: 9,
+    whatRating(){
+        if (this.rating > 8) {
+            return true
+        } else return false
+    }
+}
+console.log(movie.whatRating())
+console.log(movie);
