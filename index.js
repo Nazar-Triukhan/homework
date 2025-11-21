@@ -12,7 +12,7 @@ for(let i of k){
 }
 
 // Завдання 2
-const user = {
+const userInf = {
     hobby: 'football',
     premium: true,
     mood: 'happy'
@@ -22,7 +22,7 @@ const key = Object.keys(obj)
 return key.length
 
 }
-console.log(countProps(user));
+console.log(countProps(userInf));
 // Завдання 3
 const obj = {
     vlad: 3,
@@ -68,8 +68,8 @@ console.log(countTotalSalary(userMany));
 
 
 // Завдання 5
-const user = [{name: 'Nazar'},{name:'Vlad'},{name:'Sahon'}]
-const key = Object.keys(user[0])[0];
+const nameUser = [{name: 'Nazar'},{name:'Vlad'},{name:'Sahon'}]
+const key = Object.keys(nameUser[0])[0];
 
 const getAllPropValues = (arr, prop) => {
 
