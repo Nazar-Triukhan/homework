@@ -170,38 +170,33 @@ const users = [
 
 ];
 
-const getUserNames = users => users.map((elem) => elem.name);
-console.log(getUserNames(users));
-// [ 'Moore Hensley', 'Sharlene Bush', 'Ross Vazquez', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony' ]
 
+// Отримати загальну суму балансу (поле balance) всіх користувачів.
+const calculateTotalBalance = users => {
+  const resultBalance = users.reduce((acc,item) => {
+     return acc + item.balance
+  },0)
+  return resultBalance
+};
+console.log(calculateTotalBalance(users)); // 20916
 
 // Завдання 2
-// Отримати масив об'єктів користувачів за кольором очей (поле eyeColor).
-const getUsersWithEyeColor = (users, color) => users.filter(elem => elem.eyeColor === color);
-console.log(getUsersWithEyeColor(users, 'blue')); // [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
+// Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
+const getUsersWithFriend = (users, friendName) => users.filter(item => item.friends.includes(friendName)).map(item => item.name);
 
-
+console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
 
 // Завдання 3
-// Отримати масив імен користувачів за статтю (поле gender)
-const getUsersWithGender = (users, gender) => users.filter(elem => elem.gender === gender).map(item => item.name);
-console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+// Масив імен (поле name) людей, відсортованих в залежності від кількості їх друзів (поле friends)
+const getNamesSortedByFriendsCount = users => users.sort((a,b) => a.friends.length - b.friends.length).map(item => item.name);
 
+console.log(getNamesSortedByFriendsCount(users));
+// [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
 
 // Завдання 4
-// Отримати масив тільки неактивних користувачів (поле isActive).
-const getInactiveUsers = users => {
-    return users.filter(item => !item.isActive)
-
-};
-console.log(getInactiveUsers(users)); // [об'єкт Moore Hensley, об'єкт Ross Vazquez, об'єкт Blackburn Dotson]
-
-
-// Завдання 5
-// Отримати користувача (не масив) по email (поле email, він унікальний).
-// Отримати користувача (не масив) по email (поле email, він унікальний).
-const getUserWithEmail = (users, email) => {
-  return users.find(item => item.email === email)
-};
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {об'єкт користувача Sheree Anthony}
-console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {об'єкт користувача Elma Head}
+// Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має бути 
+// повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
+const getSortedUniqueSkills = users => users.flatMap(item => item.skills).filter((item,index,arr) => arr.indexOf(item) === index).sort((a,b) => a.localeCompare(b));
+console.log(getSortedUniqueSkills(users));
+// [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
