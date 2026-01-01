@@ -1,0 +1,33 @@
+body{
+    background-color: bisque;
+}
+
+.title{
+    text-align: center;
+    font-size: 60px;
+    background-color:rgba(197, 155, 110, 0.379);
+    color: chocolate;
+}
+
+#categories{
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+}
+
+#ingredients{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#gallery{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+img{
+    width: 400px;
+    height: 250px;
+}
