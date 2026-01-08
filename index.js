@@ -1,86 +1,59 @@
-// Завдання 1
-// В HTML є список категорій ul.
-// Напиши скрипт, який виконає наступні операції.
-// Порахує і виведе в консоль кількість категорій в ul#categories, тобто елементів 
-// li.item. Вийде 'У списку 3 категорії.'.
-// Для кожного елемента li.item в списку ul#categories, знайде і виведе в консоль 
-// текст заголовка елемента (тега h2) і
-//  кількість елементів в категорії (всіх вкладених в нього елементів li).
-// Наприклад, для першої категорії вийде:
-// Категорія: Тварини
-// Кількість елементів: 4
+// // 1.Напиши скрипт в якому є три радіобатони зі значенями кольрів. При обиранніна
+// // будь якого колір фону боді змінюється відповідно
 
-const numberCategorisRef = document.querySelectorAll('#categories .item')
-console.log(`У списку ${numberCategorisRef.length} категорії.`);
+const formRef = document.querySelector(".form");
+formRef.addEventListener("change", (event) => {
+  const colorClick = event.target.value;
+  if (colorClick === "red") {
+    document.body.style.backgroundColor = "red";
+  } else if (colorClick === "white") {
+    document.body.style.backgroundColor = "white";
+  } else if (colorClick === "green") {
+    document.body.style.backgroundColor = "green";
+  }
+});
 
-numberCategorisRef.forEach((item) => {
-    
-    const title = item.querySelector('h2').textContent
-    const numberCategorias = item.querySelectorAll('ul li')
-    console.log(`Категорія: ${title}`);
-    console.log(` Кількість елементів: ${numberCategorias.length}`);
-    
+// // 2.Напиши скрипт який, при наборі тексту в інпут input#name-input
+// // (подія input), підставляє його поточне значення в span#name-output.
+//  якщо інпут порожній, в спані повинен відображатися рядок 'незнайомець'.
+
+const inputRef = document.querySelector('#name-input')
+const spanRef = document.querySelector('#name-output')
+inputRef.addEventListener('input',(event) => {
+    const textInput = event.currentTarget.value.trim()
+    if(textInput === ''){
+        spanRef.innerHTML = 'незнайомець'
+    }else spanRef.innerHTML = textInput
 })
 
-// Завдання 2
-// В HTML є пустий список ul#ingredients.
-// <ul id="ingredients"></ul>
-// В JS є масив рядків.
-const ingredients = [
- 'Картопля',
- 'Гриби',
- 'Часник',
- 'Помідори',
- 'Зелень',
- 'Приправи',
-];
-// Напиши скрипт, який для кожного елемента масиву ingredients створить окремий li,
-//  після чого вставить всі li за одну операцію в список ul.ingredients. Для створення
-//  DOM-вузлів використовуй document.createElement().
-const ingredientsRwf = document.querySelector('#ingredients')
+// // Напиши скрипт, який би при втраті фокуса на інпут,
+// //  перевіряв його вміст на правильну кількість символів.
+// // Скільки символів має бути в інпут, вказується в його атрибуті data-length.
+// // Якщо введена відповідна кількість, то border інпут стає зеленим, 
+//   якщо неправильне - червоним.
+// // Для додавання стилів, використовуй CSS-класи valid і invalid.
 
-const addLi = ingredients.map((item) => {
-const li = document.createElement('li')
-li.insertAdjacentHTML('beforeend', item)
-return li
+const textInputRef = document.querySelector('#validation-input')
+textInputRef.addEventListener('blur',(event) => {
+    const lengthText = event.currentTarget.value
+    if(lengthText.length === 6){
+        textInputRef.classList.add('valid')
+        textInputRef.classList.remove('invalid')
+    } else {
+        textInputRef.classList.add('invalid')
+        textInputRef.classList.remove('valid')
+}
 })
 
-ingredientsRwf.append(...addLi)
-console.log(ingredientsRwf);
+// // 3. Напиши скрипт, який реагує на зміну значення
+//  input#font-size-control (подія input) і змінює інлайн-стиль 
+// span#text оновлюючи властивість font-size. В результаті при
+//  перетягуванні повзунка змінюватиметься розмір тексту.
 
+const inputRangeRef = document.querySelector('#font-size-control')
+const spanRangeRef = document.querySelector('#text')
+inputRangeRef.addEventListener('input',(event) => {
 
-// Завдання 3
-// Напиши скрипт для створення галереї зображень по масиву даних.
-// В HTML є список ul#gallery.
-// <ul id="gallery"></ul>
-// Використовуй масив об'єктів images для створення тегів img вкладених
-//  в li. Для створення розмітки використовуй шаблонні рядки і 
-// insertAdjacentHTML().
-// Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
-// Додай мінімальне оформлення галереї флексбоксами або грід через css-класи.
-const images = [
- {
-  url:
-   'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  alt: 'White and Black Long Fur Cat',
- },
- {
-  url:
-   'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
- },
- {
-  url:
-   'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  alt: 'Group of Horses Running',
- },
-];
+    spanRangeRef.style.fontSize = `${event.currentTarget.value}px`
+})
 
-const gallery = document.querySelector('#gallery')
-
-const addDom = images.map(item => {
-    return `<li><img src="${item.url}" alt="${item.alt}"></li>`
-}).join('')
-
-gallery.insertAdjacentHTML('beforeend',addDom)
-console.log(gallery);

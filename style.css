@@ -1,33 +1,17 @@
-body{
-    background-color: bisque;
+#validation-input {
+
+  border: 3px solid #bdbdbd;
+
 }
 
-.title{
-    text-align: center;
-    font-size: 60px;
-    background-color:rgba(197, 155, 110, 0.379);
-    color: chocolate;
+#validation-input.valid {
+
+  border-color: #4caf50;
+
 }
 
-#categories{
-    display: flex;
-    gap: 150px;
-    justify-content: center;
-}
+#validation-input.invalid {
 
-#ingredients{
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-}
+  border-color: #f44336;
 
-#gallery{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-img{
-    width: 400px;
-    height: 250px;
 }
